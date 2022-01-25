@@ -22,21 +22,21 @@ showNumberFibonachiByNumber(10);
 
 
 let quickSearchNumberFibonachi = (function () {
-  let memo = {};
-  function f(n) {
+  let memory = {};
+  function memoryCreation(i) {
     let value;
-    if (n in memo) {
-      value = memo[n];
+    if (i in memory) {
+      value = memory[i];
     } else {
-      if (n === 0 || n === 1) {
-        value = n;
+      if (i === 0 || i === 1) {
+        value = i;
       } else {
-        value = f(n - 1) + f(n - 2);
-        memo[n] = value;
+        value = memoryCreation(i - 1) + memoryCreation(i - 2);
+        memory[i] = value;
       }
     }
     return value;
   }
-  return f;
+  return memoryCreation;
 })();
 quickSearchNumberFibonachi(80);
